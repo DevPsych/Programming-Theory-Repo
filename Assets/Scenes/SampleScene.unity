@@ -904,11 +904,11 @@ MonoBehaviour:
   - {fileID: 5697929105059442044, guid: 775d55d727b1a0848b999053c066abc8, type: 3}
   - {fileID: 6626386438022647716, guid: 64979690210451743b94f808e9bf6fe4, type: 3}
   enemyLevel: 0
-  enemiesToSpawn: 10
+  enemiesToSpawn: 4
   enemyCount: 0
-  additionalSpawn: 2
-  maxSpawn: 14
-  minSpawn: 10
+  additionalSpawn: 1
+  maxSpawn: 6
+  minSpawn: 4
   xRange: 40
   zRange: 40
   spawnPosition: 50

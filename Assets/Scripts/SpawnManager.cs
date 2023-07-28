@@ -19,10 +19,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemyTop(enemyLevel, enemiesToSpawn);
-        SpawnEnemyLeft(enemyLevel, enemiesToSpawn);
-        SpawnEnemyBottom(enemyLevel, enemiesToSpawn);
-        SpawnEnemyRight(enemyLevel, enemiesToSpawn);
+        SpawnEnemy(enemyLevel, enemiesToSpawn);
     }
 
     // Update is called once per frame
@@ -38,11 +35,16 @@ public class SpawnManager : MonoBehaviour
                 enemyLevel++;
                 enemiesToSpawn = minSpawn;
             }
-            SpawnEnemyTop(enemyLevel, enemiesToSpawn);
-            SpawnEnemyLeft(enemyLevel, enemiesToSpawn);
-            SpawnEnemyBottom(enemyLevel, enemiesToSpawn);
-            SpawnEnemyRight(enemyLevel, enemiesToSpawn);
+            SpawnEnemy(enemyLevel, enemiesToSpawn);
         }
+    }
+
+    void SpawnEnemy(int enemyLevel, int enemiesToSpawn)
+    {
+        SpawnEnemyTop(enemyLevel, enemiesToSpawn);
+        SpawnEnemyLeft(enemyLevel, enemiesToSpawn);
+        SpawnEnemyBottom(enemyLevel, enemiesToSpawn);
+        SpawnEnemyRight(enemyLevel, enemiesToSpawn);
     }
 
     void SpawnEnemyTop(int enemyLevel, int enemiesToSpawn)
