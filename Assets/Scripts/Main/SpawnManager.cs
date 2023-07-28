@@ -21,7 +21,11 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnHero();
+        if(MainManager.instance != null)
+        {
+            selectedHeroNumber = MainManager.instance.selectedHeroNumber;
+        }
+        SpawnHero(selectedHeroNumber);
         SpawnEnemyTop(enemyLevel, enemiesToSpawn);
         SpawnEnemyLeft(enemyLevel, enemiesToSpawn);
         SpawnEnemyBottom(enemyLevel, enemiesToSpawn);
@@ -48,7 +52,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnHero()
+    void SpawnHero(int selectedHeroNumber)
     {
         Instantiate(heroPrefab[selectedHeroNumber], new Vector3(0, 0, 0), heroPrefab[selectedHeroNumber].transform.rotation);
     }
