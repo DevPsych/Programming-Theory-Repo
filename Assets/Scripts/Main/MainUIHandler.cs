@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(1000)]
+
 public class MainUIHandler : MonoBehaviour
 {
     // Start is called before the first frame update

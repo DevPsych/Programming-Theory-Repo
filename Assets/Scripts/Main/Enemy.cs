@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float speed = 10.0f;
+    [SerializeField] float speed = 7.0f;
     private GameObject player;
 
     // Start is called before the first frame update
