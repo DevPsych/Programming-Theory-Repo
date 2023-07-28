@@ -149,5 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  bound: 39
   attackPrefab: {fileID: 9172584574858573307, guid: 40064877245ec6544a056a82d0621904, type: 3}
   cooldownTime: 0.6
