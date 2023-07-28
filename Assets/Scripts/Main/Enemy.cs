@@ -7,17 +7,22 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed = 7.0f;
     private GameObject player;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Hero");
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveToPlayer();
+        if (gameManager.isGameActive)
+        {
+            MoveToPlayer();
+        }
     }
 
     void MoveToPlayer()

@@ -10,12 +10,6 @@ public class Mage : Hero
     private float zOffset = 2.0f;
     private bool canUse = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

@@ -8,12 +8,6 @@ public class Warrior : Hero
     [SerializeField] float cooldownTime = 0.6f;
     private bool canUse = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

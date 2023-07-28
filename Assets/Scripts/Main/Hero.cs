@@ -6,11 +6,13 @@ public abstract class Hero : MonoBehaviour
 {
     [SerializeField] float speed = 10.0f;
     [SerializeField] float bound = 39.0f;
+    [SerializeField] int health = 3;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-        
+        gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -53,5 +55,17 @@ public abstract class Hero : MonoBehaviour
         }
     }
 
-    public abstract void Attack(); 
+    public abstract void Attack();
+
+    private void OnTriggerEnter(Collider other)
+    {
+        health--;
+        Destroy(other.gameObject);
+        if (health < 1)
+        {
+            Destroy(gameObject);
+            gameManager.GameOver();
+        }
+        Debug.Log("You have " + health + " HP remaining.");
+    }
 }
