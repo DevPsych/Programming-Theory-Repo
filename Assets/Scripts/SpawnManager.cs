@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefab;
+    [SerializeField] GameObject[] heroPrefab;
     [SerializeField] int enemyLevel = 0;
+    [SerializeField] int selectedHeroNumber = 0;
     [SerializeField] int enemiesToSpawn = 4;
     [SerializeField] int enemyCount = 0;
     [SerializeField] int additionalSpawn = 1;
@@ -19,6 +21,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnHero();
         SpawnEnemyTop(enemyLevel, enemiesToSpawn);
         SpawnEnemyLeft(enemyLevel, enemiesToSpawn);
         SpawnEnemyBottom(enemyLevel, enemiesToSpawn);
@@ -43,6 +46,11 @@ public class SpawnManager : MonoBehaviour
             SpawnEnemyBottom(enemyLevel, enemiesToSpawn);
             SpawnEnemyRight(enemyLevel, enemiesToSpawn);
         }
+    }
+
+    void SpawnHero()
+    {
+        Instantiate(heroPrefab[selectedHeroNumber], new Vector3(0, 0, 0), heroPrefab[selectedHeroNumber].transform.rotation);
     }
 
     void SpawnEnemyTop(int enemyLevel, int enemiesToSpawn)
