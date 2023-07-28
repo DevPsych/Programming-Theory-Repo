@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 3124904486361220484}
   - component: {fileID: 7163307106493798950}
   - component: {fileID: 8075085218375199982}
+  - component: {fileID: 1462741062004331488}
+  - component: {fileID: 4180915819162057157}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9172584574858573307}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.1, y: 2, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 3, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!33 &680843266732537604
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -120,4 +122,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a569d1bed2b88408282cfd8f4cd40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
+  rotationSpeed: 360
+  activeSkillTime: 0.5
+--- !u!114 &1462741062004331488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172584574858573307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52557fb664378947bf20e48677df078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4180915819162057157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172584574858573307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6ffa3f3abee1e42a6d9a02934e1b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
