@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 496634132337841237}
   - component: {fileID: 4508114672248871411}
   - component: {fileID: 2201717583711741016}
-  - component: {fileID: 4269695356598239295}
+  - component: {fileID: 209556876794991956}
   m_Layer: 0
   m_Name: Hero 2
   m_TagString: Hero
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6020786749550626022
 MeshFilter:
@@ -136,7 +136,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &4269695356598239295
+--- !u!114 &209556876794991956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9184486724927730971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf710c0157a9aa4e8bb04efe1186900, type: 3}
+  m_Script: {fileID: 11500000, guid: d60dab75dd26d164081f82e0fd6e0604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10

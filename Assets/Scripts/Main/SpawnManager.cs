@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnHero(int selectedHeroNumber)
     {
-        Instantiate(heroPrefab[selectedHeroNumber], new Vector3(0, 0, 0), heroPrefab[selectedHeroNumber].transform.rotation);
+        Instantiate(heroPrefab[selectedHeroNumber], new Vector3(0, 2, 0), heroPrefab[selectedHeroNumber].transform.rotation);
     }
 
     void SpawnEnemyTop(int enemyLevel, int enemiesToSpawn)
