@@ -22,11 +22,13 @@ public class MainUIHandler : MonoBehaviour
         
     }
 
+    //Return to menu button
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
     }
 
+    //Restart game when game over
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

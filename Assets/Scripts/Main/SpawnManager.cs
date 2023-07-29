@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefab;
     [SerializeField] GameObject[] heroPrefab;
-    [SerializeField] int enemyLevel = 0;
+    [SerializeField] int enemyLevel = 2;
     [SerializeField] int selectedHeroNumber = 0;
     [SerializeField] int enemiesToSpawn = 4;
     [SerializeField] int enemyCount = 0;
@@ -18,9 +18,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float zRange = 40.0f;
     [SerializeField] float spawnPosition = 50.0f;
 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         SpawnEnemy(enemyLevel, enemiesToSpawn);
         if(MainManager.instance != null)
         {
@@ -32,6 +36,12 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InitializeLevel();
+    }
+
+    //Initalize level and increases level
+    void InitializeLevel()
+    {
         enemyCount = FindObjectsOfType<Enemy>().Length;
 
         if (enemyCount == 0)
@@ -41,11 +51,26 @@ public class SpawnManager : MonoBehaviour
             {
                 enemyLevel++;
                 enemiesToSpawn = minSpawn;
+                
             }
-            SpawnEnemy(enemyLevel, enemiesToSpawn);
+            if (enemyLevel < enemyPrefab.Length)
+            {
+                SpawnEnemy(enemyLevel, enemiesToSpawn);
+            }
+            else
+            {
+                gameManager.WinGame();
+            }
         }
     }
 
+    //Spawn hero
+    void SpawnHero(int selectedHeroNumber)
+    {
+        Instantiate(heroPrefab[selectedHeroNumber], new Vector3(0, 2, 0), heroPrefab[selectedHeroNumber].transform.rotation);
+    }
+
+    //Spawn enemy one all sides
     void SpawnEnemy(int enemyLevel, int enemiesToSpawn)
     {
         SpawnEnemyTop(enemyLevel, enemiesToSpawn);
@@ -54,11 +79,7 @@ public class SpawnManager : MonoBehaviour
         SpawnEnemyRight(enemyLevel, enemiesToSpawn);
     }
 
-    void SpawnHero(int selectedHeroNumber)
-    {
-        Instantiate(heroPrefab[selectedHeroNumber], new Vector3(0, 2, 0), heroPrefab[selectedHeroNumber].transform.rotation);
-    }
-
+    //Spawn enemy on top
     void SpawnEnemyTop(int enemyLevel, int enemiesToSpawn)
     {
         for(int i = 0; i < enemiesToSpawn; i++)
@@ -67,6 +88,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    //Spawn enemy on left
     void SpawnEnemyLeft(int enemyLevel, int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
@@ -75,6 +97,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    //Spawn enemy on bottom
     void SpawnEnemyBottom(int enemyLevel, int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
@@ -83,6 +106,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    //Spawn enemy on right
     void SpawnEnemyRight(int enemyLevel, int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
@@ -91,6 +115,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    //Randomzie top spawn position
     private Vector3 RandomizeTopSpawnPosition()
     {
         float xPosition = Random.Range(-xRange, xRange);
@@ -98,6 +123,7 @@ public class SpawnManager : MonoBehaviour
         return new Vector3(xPosition, enemyPrefab[enemyLevel].transform.position.y, spawnPosition);
     }
 
+    //Randomzie left spawn position
     private Vector3 RandomizeLeftSpawnPosition()
     {
         float zPosition = Random.Range(-zRange, zRange);
@@ -105,6 +131,7 @@ public class SpawnManager : MonoBehaviour
         return new Vector3(-spawnPosition, enemyPrefab[enemyLevel].transform.position.y, zPosition);
     }
 
+    //Randomzie bottom spawn position
     private Vector3 RandomizeBottomSpawnPosition()
     {
         float xPosition = Random.Range(-xRange, xRange);
@@ -112,6 +139,7 @@ public class SpawnManager : MonoBehaviour
         return new Vector3(xPosition, enemyPrefab[enemyLevel].transform.position.y, -spawnPosition);
     }
 
+    //Randomzie right spawn position
     private Vector3 RandomizeRightSpawnPosition()
     {
         float zPosition = Random.Range(-zRange, zRange);

@@ -8,14 +8,9 @@ public class Warrior : Hero
     [SerializeField] float cooldownTime = 0.6f;
     private bool canUse = true;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Attack();
-        Move();
-    }
-
-    public override void Attack()
+    //Polymorphism
+    //Warrior has own unique attack
+    protected override void Attack()
     {
         if (Input.GetKeyDown(KeyCode.Space) && canUse)
         {
@@ -25,6 +20,7 @@ public class Warrior : Hero
         }
     }
 
+    //Cooldown before warrior can use skill again
     IEnumerator SkillCooldown(float cooldownTime)
     {
         yield return new WaitForSeconds(cooldownTime);

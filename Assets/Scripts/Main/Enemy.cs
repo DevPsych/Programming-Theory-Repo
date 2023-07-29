@@ -19,12 +19,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Move enemies to player as long as game is active
         if (gameManager.isGameActive)
         {
             MoveToPlayer();
         }
     }
 
+    //Enemy moves towards player
     void MoveToPlayer()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;

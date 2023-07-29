@@ -14,23 +14,13 @@ public class TitleUIHandler : MonoBehaviour
 {
     public int selectedHeroNumber;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Move to main scene
     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
+    //Quit application
     public void ExitGame()
     {
 #if UNITY_EDITOR
@@ -40,6 +30,7 @@ public class TitleUIHandler : MonoBehaviour
 #endif
     }
 
+    //Select a new hero
     public void NewHeroSelected(int selectedHeroNumber)
     {
         MainManager.instance.selectedHeroNumber = selectedHeroNumber;

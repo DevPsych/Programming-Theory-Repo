@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] GameObject player;
     [SerializeField] Vector3 cameraOffset = new Vector3(0, 25, 0);
     private GameManager gameManager;
 
@@ -22,7 +22,14 @@ public class FollowPlayer : MonoBehaviour
     {
         if (gameManager.isGameActive)
         {
-            transform.position = player.transform.position + cameraOffset;
+            MoveCamera();
         }
+    }
+
+    //Abstraction
+    //Moves camera along with the player
+    void MoveCamera()
+    {
+        transform.position = player.transform.position + cameraOffset;
     }
 }

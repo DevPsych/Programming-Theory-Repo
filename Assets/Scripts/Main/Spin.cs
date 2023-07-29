@@ -19,7 +19,10 @@ public class Spin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpinSword();
+        if (player != null)
+        {
+            SpinSword();
+        }
     }
 
     void SpinSword()

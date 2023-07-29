@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class ActiveSkillTime : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //Duration of skill before destruction
+    //It may be good to create a skill class and implement inheritance
     public IEnumerator SkillTime(float activeSkillTime)
     {
         yield return new WaitForSeconds(activeSkillTime);

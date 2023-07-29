@@ -7,14 +7,16 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isGameActive = true;
+    //Encapsulation
+    public bool isGameActive;
     [SerializeField] TextMeshProUGUI gameOverText;
+    [SerializeField] TextMeshProUGUI congratulationsText;
     [SerializeField] Button restartButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isGameActive = true;
     }
 
     // Update is called once per frame
@@ -23,10 +25,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //Game Over UI and stops game
     public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(true);
+        isGameActive = false;
+    }
+
+    public void WinGame()
+    {
+        restartButton.gameObject.SetActive(true);
+        congratulationsText.gameObject.SetActive(true);
         isGameActive = false;
     }
 }

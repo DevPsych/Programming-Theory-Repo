@@ -6,21 +6,28 @@ public abstract class Hero : MonoBehaviour
 {
     [SerializeField] float speed = 10.0f;
     [SerializeField] float bound = 39.0f;
-    [SerializeField] int health = 3;
-    private GameManager gameManager;
+    [SerializeField] int health;
+    protected GameManager gameManager;
 
     // Start is called before the first frame update
     protected void Start()
     {
+        health = 3;
         gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-
+        if (gameManager.isGameActive)
+        {
+            Attack();
+            //Inherited from the Hero class
+            Move();
+        }
     }
 
+    //Inheritance
+    //All children of this class takes player's input to move
     protected void Move()
     {
         SetPlayerBoundary();
@@ -32,6 +39,7 @@ public abstract class Hero : MonoBehaviour
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
     }
 
+    //The player cannot move beyond boundary
     void SetPlayerBoundary()
     {
         if (transform.position.x < -bound)
@@ -55,8 +63,10 @@ public abstract class Hero : MonoBehaviour
         }
     }
 
-    public abstract void Attack();
+    //All children require an attack method
+    protected abstract void Attack();
 
+    //Player loses health when they collide with enemy
     private void OnTriggerEnter(Collider other)
     {
         health--;
